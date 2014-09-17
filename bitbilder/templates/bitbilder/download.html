@@ -1,0 +1,53 @@
+<html>
+    {% load staticfiles %}
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Alle Bits herunterladen</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+        <!-- Optional theme -->
+        <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"> -->
+
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="{% static 'matrix.css' %}">
+    </head>
+    <body>
+        <!-- Static navbar -->
+        <div class="navbar navbar-default navbar-static-top" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="/bits">BitBilder</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="/bits"><span class="glyphicon glyphicon-picture"></span> Alle Bits</a></li>
+                    <li><a href="/bits/add"><span class="glyphicon glyphicon-plus"></span> Hinzufügen</a></li>
+                    <li class="active"><a href="/bits/download/"><span class="glyphicon glyphicon-download"></span> Download</a></li>
+                </ul>
+            </div><!--/.nav-collapse -->
+          </div>
+        </div><!-- end navbar -->
+
+        <div class="well" style="width: 80%; margin-left: auto; margin-right: auto; text-align: center;">
+            <h4>
+                Bitte beachte bei der Benutzung die jeweilige Lizenz des Bits und ob das Bit für eine bestimmte Person reserviert ist!
+            </h4>
+            <a href="/bits/download/svg" class="btn btn-lg btn-danger btn-block">
+                <span class="glyphicon glyphicon-download"></span> Vektor
+            </a>
+            <a href="/bits/download/images" class="btn btn-lg btn-danger btn-block">
+                <span class="glyphicon glyphicon-download"></span> Bild
+            </a>
+        </div>
+    </body>
+</html>

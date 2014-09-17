@@ -1,0 +1,71 @@
+/* navbar */
+div.navbar-default {
+    background-color: #d9534f;
+    border-color: #d43f3a;
+}
+/* title */
+div.navbar-default .navbar-brand {
+    color: #ecf0f1;
+}
+div.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+    color: #fff;
+}
+/* link */
+div.navbar-default .navbar-nav > li > a {
+    color: #ecf0f1;
+}
+div.navbar-default .navbar-nav > li > a:hover,
+div.navbar-default .navbar-nav > li > a:focus {
+    color: #fff;
+}
+div.navbar-default .navbar-nav > .active > a,
+div.navbar-default .navbar-nav > .active > a:hover,
+div.navbar-default .navbar-nav > .active > a:focus {
+    color: #fff;
+    background-color: #d43f3a;
+}
+div.navbar-default .navbar-nav > .open > a,
+div.navbar-default .navbar-nav > .open > a:hover,
+div.navbar-default .navbar-nav > .open > a:focus {
+    color: #fff;
+    background-color: #d43f3a;
+}
+/* caret */
+div.navbar-default .navbar-nav > .dropdown > a .caret {
+    border-top-color: #ecf0f1;
+    border-bottom-color: #ecf0f1;
+}
+div.navbar-default .navbar-nav > .dropdown > a:hover .caret,
+div.navbar-default .navbar-nav > .dropdown > a:focus .caret {
+    border-top-color: #fff;
+    border-bottom-color: #fff;
+}
+div.navbar-default .navbar-nav > .open > a .caret,
+div.navbar-default .navbar-nav > .open > a:hover .caret,
+div.navbar-default .navbar-nav > .open > a:focus .caret {
+    border-top-color: #fff;
+    border-bottom-color: #fff;
+}
+/* mobile version */
+div.navbar-default .navbar-toggle {
+    border-color: #d43f3a;
+}
+div.navbar-default .navbar-toggle:hover,
+div.navbar-default .navbar-toggle:focus {
+    background-color: #d43f3a;
+}
+div.navbar-default .navbar-toggle .icon-bar {
+    background-color: #ecf0f1;
+}
+@media (max-width: 767px) {
+    div.navbar-default .navbar-nav .open .dropdown-menu > li > a {
+        color: #ecf0f1;
+    }
+    div.navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+    div.navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+        color: #fff;
+    }
+}
+
+/* custom classes */

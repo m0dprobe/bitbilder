@@ -1,0 +1,104 @@
+<html>
+    {% load staticfiles %}
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{{bit.bitname}}</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+        <!-- Optional theme -->
+        <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"> -->
+
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="{% static 'matrix.css' %}">
+    </head>
+    <body>
+        <!-- Static navbar -->
+        <div class="navbar navbar-default navbar-static-top" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="/bits">BitBilder</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="/bits"><span class="glyphicon glyphicon-picture"></span> Alle Bits</a></li>
+                    <li><a href="/bits/add"><span class="glyphicon glyphicon-plus"></span> Hinzufügen</a></li>
+                    <li><a href="/bits/download/"><span class="glyphicon glyphicon-download"></span> Download</a></li>
+              </ul>
+            </div><!--/.nav-collapse -->
+          </div>
+        </div><!-- end navbar -->
+
+        {% load staticfiles %}
+        <div class="col-md-4" style="float: left; margin: 20px;">
+            <img src="/images/{{bit.bit_image}}" alt="{{bit.bitname}}" width="400px">
+        </div>
+        <div class="col-md-7" style="margin-left: 2%; margin-right: 20px;">
+            <ol class="breadcrumb">
+                <li><a href="/bits">Alle Bits</a></li>
+                <li class="active">{{bit.bitname}}</li>
+            </ol>
+
+            <div class="page-header">
+                <h1>{{bit.bitname}}</h1>
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    <strong>Autor:</strong>
+                </div>
+                <div class="col-md-10">
+                    {{bit.author}}
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-md-2">
+                    <strong>Datum:</strong>
+                </div>
+                <div class="col-md-10">
+                    {{bit.creation_date}}
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-md-2">
+                    <strong>Lizenz:</strong>
+                </div>
+                <div class="col-md-10">
+                    {{bit.license}}
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-md-2">
+                    <strong>Reserviert:</strong>
+                </div>
+                <div class="col-md-10">
+                    {% if bit.reserved %}
+                        <span class="glyphicon glyphicon-ok"></span> reserviert für {{bit.reserved_for}}
+                    {% else %}
+                        <span class="glyphicon glyphicon-remove"></span> <a href="/bits/{{bit.id}}/claim" class="btn btn-link" style="padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px;">reservieren</a>
+                    {% endif %}
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-md-6">
+                    <a href="/images/{{ bit.bit_image }}" class="btn btn-info" style="width: 100%;"><span class="glyphicon glyphicon-download"></span> Bild </a>
+                </div>
+                <div class="col-md-6">
+                    <a href="/images/{{ bit.bit_vector }}" class="btn btn-info" style="width: 100%;"><span class="glyphicon glyphicon-download"></span> SVG </a>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
