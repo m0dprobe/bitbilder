@@ -40,65 +40,25 @@
 
         {% load staticfiles %}
         {% if bit_list %}
+            <table class="table table-striped">
+                <tr>
+                    <th>Bit</th>
+                    <th>Name</th>
+                    <th>Download</th>
+                </tr>
             {% for bit in bit_list %}
-                {% if forloop.counter|divisibleby:2 %}
-                    <div class="jumbotron col-md-6" style="width: 47%; margin-right: 2%; margin-left: auto; float: right;">
-                        <div class="media">
-                            <a class="pull-left">
-                                <img class="media-object" src="/images/{{ bit.bit_image }}" alt="{{ bit.bitname }}" width="300px">
-                            </a>
-                            <div class="media-body" style="padding-left: 20px;">
-                                <a href="{% url 'details' bit.id %}"><h4 class="media-heading">{{ bit.bitname }}</h4></a>
-                                <strong>Autor:</strong> {{ bit.author }}<br/>
-                                <strong>Datum:</strong> {{ bit.creation_date }}<br />
-                                <strong>Lizenz:</strong> {{ bit.license }} <br />
-                                <div class="text-center">
-                                    <div class="btn-group btn-group-justified" style="margin-top: 10px;">
-                                        <a href="/images/{{ bit.bit_image }}" class="btn btn-info"><span class="glyphicon glyphicon-download"></span> Bild</a>
-                                        <a href="/images/{{ bit.bit_vector }}" class="btn btn-info"><span class="glyphicon glyphicon-download"></span> SVG</a>
-                                    </div>
-                                </div><br />
-
-                                {% if bit.reserved %}
-                                    <div class="text-center">
-                                        <div class="alert alert-info" style="margin-top: 10px;">
-                                        reserviert für {{bit.reserved_for}}
-                                        </div>
-                                    </div>
-                                {% endif %}
-                            </div>
+                <tr>
+                    <td> <img src="/images/{{bit.bit_image}}" alt="{{bit.bitname}}" height="64px" style="align: center;"> </td>
+                    <td> {{bit.bitname}} </td>
+                    <td>
+                        <div class="btn-group btn-group-justified">
+                            <a href="/images/{{ bit.bit_image }}" class="btn btn-info"><span class="glyphicon glyphicon-download"></span> Bild</a>
+                            <a href="/images/{{ bit.bit_vector }}" class="btn btn-info"><span class="glyphicon glyphicon-download"></span> SVG</a>
                         </div>
-                    </div>
-                {% else %}
-                    <div class="jumbotron col-md-6" style="width: 47%; margin-left: 20px; margin-right: auto; float: left;">
-                        <div class="media">
-                            <a class="pull-left">
-                                <img class="media-object" src="/images/{{ bit.bit_image }}" alt="{{ bit.bitname }}" width="300px">
-                            </a>
-                            <div class="media-body" style="padding-left: 20px;">
-                                <a href="{% url 'details' bit.id %}"><h4 class="media-heading">{{ bit.bitname }}</h4></a>
-                                <strong>Autor:</strong> {{ bit.author }}<br/>
-                                <strong>Datum:</strong> {{ bit.creation_date }}<br />
-                                <strong>Lizenz:</strong> {{ bit.license }} <br />
-                                <div class="text-center">
-                                    <div class="btn-group btn-group-justified" style="margin-top: 10px;">
-                                        <a href="/images/{{ bit.bit_image }}" class="btn btn-info"><span class="glyphicon glyphicon-download"></span> Bild</a>
-                                        <a href="/images/{{ bit.bit_vector }}" class="btn btn-info"><span class="glyphicon glyphicon-download"></span> SVG</a>
-                                    </div>
-                                </div><br />
-
-                                {% if bit.reserved %}
-                                    <div class="text-center">
-                                        <div class="alert alert-info" style="margin-top: 10px;">
-                                        reserviert für {{bit.reserved_for}}
-                                        </div>
-                                    </div>
-                                {% endif %}
-                            </div>
-                        </div>
-                    </div>
-                {% endif %}
+                    </td>
+                </tr>
             {% endfor %}
+            </table>
         {% else %}
             <h4>Keine Bits verfügbar.</h4>
         {% endif %}
