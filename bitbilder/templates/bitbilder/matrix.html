@@ -54,7 +54,14 @@
                 {% if forloop.counter0|divisibleby:2 %}
                 <tr>
                     <td style="text-align: center;"> <img src="/images/{{bit.bit_image}}" alt="{{bit.bitname}}" height="128px"> </td>
-                    <td> <a href="{% url 'details' bit.id %}">{{bit.bitname}}</a> </td>
+                    <td>
+                        <a href="{% url 'details' bit.id %}">{{bit.bitname}}</a>
+                        {% if bit.reserved %}
+                            <div class="text-center">
+                                <div class="alert alert-success" role="alert">reserviert für {{bit.reserved_for}}</div>
+                            </div>
+                        {% endif %}
+                    </td>
                     <td>
                         <div class="btn-group">
                             <a href="/images/{{ bit.bit_image }}" class="btn btn-info"><span class="glyphicon glyphicon-download"></span> Bild</a>
@@ -63,7 +70,14 @@
                     </td>
                 {% else %}
                     <td style="text-align: center;"> <img src="/images/{{bit.bit_image}}" alt="{{bit.bitname}}" height="128px" style="align: center;"> </td>
-                    <td> <a href="{% url 'details' bit.id %}">{{bit.bitname}}</a> </td>
+                    <td>
+                        <a href="{% url 'details' bit.id %}">{{bit.bitname}}</a>
+                        {% if bit.reserved %}
+                            <div class="text-center">
+                                <div class="alert alert-success" role="alert">reserviert für {{bit.reserved_for}}</div>
+                            </div>
+                        {% endif %}
+                    </td>
                     <td>
                         <div class="btn-group">
                             <a href="/images/{{ bit.bit_image }}" class="btn btn-info"><span class="glyphicon glyphicon-download"></span> Bild</a>
