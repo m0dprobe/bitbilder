@@ -53,7 +53,7 @@
 
                 {% if forloop.counter0|divisibleby:2 %}
                 <tr>
-                    <td> <img src="/images/{{bit.bit_image}}" alt="{{bit.bitname}}" height="64px" style="align: center;"> </td>
+                    <td> <img src="/images/{{bit.bit_image}}" alt="{{bit.bitname}}" height="128px" style="align: center;"> </td>
                     <td> <a href="{% url 'details' bit.id %}">{{bit.bitname}}</a> </td>
                     <td>
                         <div class="btn-group">
@@ -62,7 +62,7 @@
                         </div>
                     </td>
                 {% else %}
-                    <td> <img src="/images/{{bit.bit_image}}" alt="{{bit.bitname}}" height="64px" style="align: center;"> </td>
+                    <td> <img src="/images/{{bit.bit_image}}" alt="{{bit.bitname}}" height="128px" style="align: center;"> </td>
                     <td> <a href="{% url 'details' bit.id %}">{{bit.bitname}}</a> </td>
                     <td>
                         <div class="btn-group">

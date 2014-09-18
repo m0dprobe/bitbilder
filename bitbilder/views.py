@@ -11,7 +11,7 @@ import io, zipfile, os
 # Create your views here.
 
 def matrix(request):
-    bit_list = Bit.objects.order_by('-creation_date')
+    bit_list = Bit.objects.order_by('bitname')
     context = {'bit_list': bit_list}
     return render(request, 'bitbilder/matrix.html', context)
 
